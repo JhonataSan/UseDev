@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:usedev_uninassau/src/services/cart_service.dart';
 import '../models/product_model.dart';
 import '../widgets/custom_app_bar_widget.dart'; 
 
@@ -44,9 +45,9 @@ class ProductDetailScreen extends StatelessWidget {
             
             Text(
               'R\$ ${product.price.toStringAsFixed(2)}',
-              style: const TextStyle(
+              style:  TextStyle(
                 fontSize: 26,
-                color: Color.fromARGB(255, 185, 247, 2) ,
+                color: Colors.black,
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -80,6 +81,14 @@ class ProductDetailScreen extends StatelessWidget {
               height: 55,
               child: ElevatedButton.icon(
                 onPressed: () {
+                  CartService().addItem(product);
+                  ScaffoldMessenger.of(context).showSnackBar(
+                     SnackBar(
+                      content: Text('Produto adicionado ao carrinho!'),
+                      backgroundColor: Colors.green,
+                      duration:  Duration(seconds: 2),
+                    ),
+                  );
                   
                 },
                 icon: const Icon(Icons.add_shopping_cart, color: Colors.black),

@@ -5,6 +5,7 @@ import 'package:usedev_uninassau/src/widgets/product_card_widget.dart';
 import 'package:usedev_uninassau/src/widgets/subscription_section_widget.dart';
 import 'package:usedev_uninassau/src/models/product_model.dart';
 import 'package:usedev_uninassau/src/services/product_service.dart';
+import '../widgets/custom_app_bar_widget.dart';
 
 class InitialScreen extends StatefulWidget {
   const InitialScreen({super.key});
@@ -26,17 +27,9 @@ class _InitialScreenState extends State<InitialScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: const Icon(Icons.menu, size: 40),
-        title: Image.asset('assets/logo_usedev.png', height: 40),
-        centerTitle: true,
-        actions: const [
-          Icon(Icons.person_outline, size: 40),
-          SizedBox(width: 10),
-          Icon(Icons.shopping_cart_outlined, size: 40),
-          SizedBox(width: 25),
-        ],
-      ),
+      
+      appBar: const CustomAppBarWidget(showBackButton: false,),
+
       body: SingleChildScrollView(
         child: Column(
           spacing: 20,
