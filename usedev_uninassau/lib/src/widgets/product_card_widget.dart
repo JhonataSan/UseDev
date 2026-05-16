@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../models/product_model.dart';
-import '../screens/product_detail_screen.dart'; // Importa a tela que criamos
+import '../screens/product_detail_screen.dart'; 
 
 class ProductCardWidget extends StatelessWidget {
-  // Agora recebemos o produto inteiro em vez de variáveis separadas
+  
   final ProductModel produto;
 
   const ProductCardWidget({
@@ -14,10 +14,10 @@ class ProductCardWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // O InkWell deixa o card clicável e dá aquele efeito visual de "onda" ao tocar
+    
     return InkWell(
       onTap: () {
-        // Navega para a tela de detalhes enviando o produto clicado
+        
         Navigator.push(
           context,
           MaterialPageRoute(
@@ -26,33 +26,33 @@ class ProductCardWidget extends StatelessWidget {
         );
       },
       child: Card(
-        margin: const EdgeInsets.all(20), // Sintaxe corrigida
+        margin: const EdgeInsets.all(20), 
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(0)),
         elevation: 5,
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch, // Sintaxe corrigida
+          crossAxisAlignment: CrossAxisAlignment.stretch, 
           children: [
             Image.network(
-              produto.image, // Pega a imagem do objeto
+              produto.image, 
               height: 200, 
               width: double.infinity, 
-              fit: BoxFit.cover, // Sintaxe corrigida
+              fit: BoxFit.cover, 
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10), // Corrigido
+              padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10), 
               child: Text(
-                produto.title, // Pega o nome do objeto
+                produto.title, 
                 style: TextStyle(
                   fontSize: 25,
-                  fontWeight: FontWeight.bold, // Corrigido
+                  fontWeight: FontWeight.bold, 
                   fontFamily: GoogleFonts.orbitron().fontFamily,
                 ),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10), // Corrigido
+              padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10), 
               child: Text(
-                'R\$ ${produto.price.toStringAsFixed(2)}', // Formata o preço lindamente
+                'R\$ ${produto.price.toStringAsFixed(2)}', 
                 style: TextStyle(
                   fontSize: 31,
                   fontFamily: GoogleFonts.poppins().fontFamily,
